@@ -1,0 +1,105 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Łukasz Sokołowski Portfolio - {{ title }}
+{% endblock %}
+
+{% block main_block %}
+<main class="about">
+    <div class="about-wrapper">
+        <div class="about__description-wrapper">
+            <div class="about__description">
+                <div class="about__title">
+                    <p>Who am I?</p>
+                </div>
+                <div class="about__content">
+                    <p>
+                        I am Łukasz Sokołowski, MSc in automation, robotics and industrial informatics, currently working in Warsaw as a Software Engineer in Deloitte.
+                    </p>
+                    <br>
+                    <p>
+                        In my career here I have been involved in:
+                        <ul>
+                            <li>• &nbsp;a project for a leading Slovak bank as the Lead Migration Developer,</li>
+                            <li>• &nbsp;a project for one of the leading Hungarian banks,</li>
+                            <li>• &nbsp;analysis of customer data,</li>
+                            <li>• &nbsp;analysis of data migration - mapping, bug fixing and reporting,</li>
+                            <li>• &nbsp;analysis of performance issues - daily and monthly generated reports,</li>
+                            <li>• &nbsp;preparation of processes and reconciliation reports,</li>
+                            <li>• &nbsp;preparation of database packages and database models,</li>
+                            <li>• &nbsp;supporting analysts on technical issues,</li>
+                            <li>• &nbsp;supporting bank during migration runs - Test Runs, Dry-Runs and Go-Lives,</li>
+                            <li>• &nbsp;supporting the development of new functionalities and testing of the software for data migration and reconciliation,</li>
+                            <li>• &nbsp;optimisation of migration processes and SQL queries in terms of performance and readability,</li>
+                            <li>• &nbsp;development of Jenkins pipelines (CI/CD),</li>
+                            <li>• &nbsp;development of Spring Boot web app (CI/CD practices),</li>
+                            <li>• &nbsp;development of Python test data generator,</li>
+                            <li>• &nbsp;introducing and supervising the work of developers in own small technical sub-team.</li>
+                        </ul>
+                        <br>
+                        Besides my work, I am working on my frontend/web development skills, as I am self-taught in almost every tech stack, that I have in my portfolio. 
+                        Drawing, computer graphics and everything related to it are the things that I always wanted to focus mainly on ever since I can remember. 
+                        I am the type of person who takes many opportunities to learn something new, hence I enjoy challenges. 
+                        I am a fast learner and like to gain a lot of new experience.
+                    </p>
+                </div>
+                <div class="about__resume">
+                    <a class="resume__button" href="{% static 'files/Lukasz-Sokolowski-CV.pdf' %}" download="Lukasz-Sokolowski-CV">
+                        <span class="button__line"></span>
+                        <span class="button__download">Download my CV!</span>
+                        <svg width="164" height="164" viewBox="0 0 164 164" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M122.163 135.722H41.7294C39.2176 135.722 37.1649 137.747 37.1649 140.286C37.1649 142.798 39.1908 144.851 41.7294 144.851H122.19C124.702 144.851 126.754 142.825 126.754 140.286C126.727 137.747 124.702 135.722 122.163 135.722Z" fill="white"/>
+                            <path d="M122.163 115.734H41.7294C39.2176 115.734 37.1649 117.76 37.1649 120.299C37.1649 122.811 39.1908 124.863 41.7294 124.863H122.19C124.702 124.863 126.754 122.837 126.754 120.299C126.727 117.76 124.702 115.734 122.163 115.734Z" fill="white"/>
+                            <path d="M81.9459 19.1494C71.142 19.1494 62.3102 27.9545 62.3102 38.7851C62.3102 49.589 71.142 58.3937 81.9459 58.3937C92.7498 58.3937 101.582 49.5886 101.582 38.758C101.582 27.9274 92.7498 19.1494 81.9459 19.1494ZM81.9459 49.2381C76.1928 49.2381 71.4662 44.5115 71.4662 38.7584C71.4662 33.0053 76.1657 28.2787 81.9459 28.2787C87.7262 28.2787 92.4256 33.0053 92.4256 38.7584C92.4256 44.5111 87.699 49.2381 81.9459 49.2381Z" fill="white"/>
+                            <path d="M108.01 68.2527C91.3451 61.7706 72.6006 61.7706 55.9362 68.2527C50.4802 70.3864 46.834 75.8153 46.834 81.7844V100.313C46.8069 102.824 48.8599 104.877 51.3718 104.877H112.548C115.059 104.877 117.112 102.852 117.112 100.313V81.7844C117.112 75.8153 113.466 70.3864 108.01 68.2527ZM108.01 95.7748H55.9362V81.8112C55.9362 79.5964 57.2598 77.5437 59.2314 76.7875C73.7892 71.1426 90.1569 71.1426 104.715 76.7875C106.687 77.5709 108.01 79.5697 108.01 81.8112V95.7748H108.01Z" fill="white"/>
+                            <path d="M130.806 0H54.9369C51.4257 0 48.1305 1.35033 45.6458 3.8354L23.8221 25.6587C21.3374 28.1438 19.9867 31.4386 19.9867 34.9497V150.819C19.9867 158.085 25.9019 164 33.167 164H130.833C138.098 164 144.013 158.084 144.013 150.819V13.1803C143.932 5.9152 138.017 0 130.806 0ZM46.8069 15.5572V26.8469H35.5171L46.8069 15.5572ZM134.83 48.8056H117.868C115.356 48.8056 113.304 50.8315 113.304 53.3701C113.304 55.8819 115.329 57.9346 117.868 57.9346H134.83V66.0374H128.618C126.106 66.0374 124.053 68.0628 124.053 70.6018C124.053 73.1136 126.079 75.1663 128.618 75.1663H134.83V150.846C134.83 153.088 133.021 154.897 130.806 154.897H33.0864C30.8716 154.897 29.0621 153.088 29.0621 150.873V35.9491H51.3718C53.8836 35.9491 55.9362 33.9236 55.9362 31.3847V9.07502H130.806C133.021 9.07502 134.83 10.8845 134.83 13.0993V48.8056Z" fill="white"/>
+                        </svg>
+                    </a>                                 
+                </div>
+            </div>
+        </div>
+        <div class="about__picture">
+            <img src="{% static 'images/hero-pic-side.png' %}" alt="hero-pic-side.png">
+        </div>
+    </div>
+    <div class="about__skills">
+        <p>Tech Stack</p>
+        <div class="skills">
+            <div class="skills__element">
+                <img src="{% static 'svg/react.svg' %}"  alt="react.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/html.svg' %}"  alt="html.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/css.svg' %}"  alt="css.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/javascript.svg' %}"  alt="javascript.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/tailwind.svg' %}" alt="tailwind.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/python.svg' %}"  alt="python.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/django.svg' %}"  alt="django.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/oracle-sql.svg' %}"  alt="oraclesql.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/figma.svg' %}"  alt="figma.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/unreal-engine.svg' %}"  alt="unrealengine.svg">
+            </div>
+            <div class="skills__element">
+                <img src="{% static 'svg/photoshop.svg' %}"  alt="photoshop.svg">
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

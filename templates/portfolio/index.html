@@ -1,0 +1,23 @@
+{% extends 'portfolio/base.html' %} {% load static %} {% block title_block %}
+Łukasz Sokołowski Portfolio - {{ title }} {% endblock %} {% block main_block %}
+<main class="hero">
+  <div class="hero-wrapper">
+    <div class="hero__message--top">
+      <p class="message__title--top">HELLO THERE!</p>
+      <p class="message__subtitle--top">
+        I'M <span class="golden">LUKASZ</span>
+      </p>
+    </div>
+    <div class="hero__profession">
+      <p>FULL-STACK DEVELOPER</p>
+    </div>
+    <div class="hero__picture">
+      <img src="{% static 'images/hero-pic.png' %}" alt="hero-pic.png" />
+    </div>
+    <div class="hero__message--bottom">
+      <p class="message__title--bottom">and this is my...</p>
+      <p class="message__subtitle--bottom golden">PORTFOLIO</p>
+    </div>
+  </div>
+</main>
+{% endblock %}

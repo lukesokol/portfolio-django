@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>
+        {% block title_block %}
+            Łukasz Sokołowski Portfolio - Hero
+        {% endblock %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/../static/css/styles.css?v=4.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press Start 2P">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre Bodoni">
+    <script src="https://kit.fontawesome.com/f6de6d0aad.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/mobile-settings.js' %}"></script>
+    <script src="{% static 'js/mobile-detect.js' %}"></script>
+    <script src="{% static 'js/jquery.fittext.js' %}"></script>
+    {% block head_block %}
+    {% endblock %}
+</head>
+<body>
+    <nav id="nav-bar">
+        <div class="nav__logo">
+            <p><a href="{% url 'portfolio:index' %}"></a></p>
+        </div>
+        <div class="nav__menu" id="nav-menu">
+            <div class="menu-button" id="menu-button" aria-controls="primary-navigation" aria-expanded="false">
+                <svg stroke="var(--menu-button-color)" fill="none" class="hamburger" viewBox="-10 -10 120 120" width="60">
+                  <path class="line" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70">
+                  </path>
+                </svg>
+            </div>
+            <ul class="nav__list" id="nav-list" aria-expanded="false">
+                <li {% if request.resolver_match.url_name == 'index' %}class="nav__item active"{% else %}class="nav__item"{% endif %}>
+                    <a class="nav__link" href="{% url 'portfolio:index' %}">HOME</a>
+                </li>
+                <li {% if request.resolver_match.url_name == 'about' %}class="nav__item active"{% else %}class="nav__item"{% endif %}>
+                    <a class="nav__link" href="{% url 'portfolio:about' %}">ABOUT</a>
+                </li>
+                <li {% if request.resolver_match.url_name == 'work' %}class="nav__item active"{% else %}class="nav__item"{% endif %}>
+                    <a class="nav__link" href="{% url 'portfolio:work' %}">WORK</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% block main_block %}
+    {% endblock %}
+    <footer>
+        <div class="footer__container">
+            <div class="footer__socials">
+                <a aria-label="linkedin" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/łukasz-sokołowski-32a379244/">
+                    <i class="fa-brands fa-linkedin fa-xl"></i>
+                </a>
+                <!-- <a class="disabled-link" aria-label="email" target="_blank" rel="noreferrer" href="#">
+                    <i class="fa-regular fa-envelope fa-xl"></i>
+                </a> -->
+            </div>
+            <div class="footer__copyrights">
+                <p>&copy; 2023 Created by Łukasz Sokołowski. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'js/hero.js' %}?v=3.1"></script>
+<script src="{% static 'js/nav.js' %}"></script>
+{% block script_block %}
+{% endblock %}
+</html>

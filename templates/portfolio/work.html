@@ -1,0 +1,73 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Łukasz Sokołowski Portfolio - {{ title }}
+{% endblock %}
+
+{% block head_block %}
+    <script src="{% static 'js/jquery.dragnscroll.min.js' %}"></script>
+{% endblock %}
+
+{% block main_block %}
+<main class="work-main">
+    <div class="slider-wrapper">
+        <div class="slider__menu">
+            <div class="menu__title">
+                <p>My Projects</p>
+            </div>
+            <div class="menu__categories" id="categories">
+                <div class="menu__arrow menu__arrow--left">
+                    <svg width="35" height="58" viewBox="0 0 35 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M34.6569 6.37267L29 0.71582L0.715729 29.0001L29 57.2844L34.6569 51.6275L12.0294 29.0001L34.6569 6.37267Z" fill="#FFF"/>
+                    </svg>
+                </div>
+                <div class="menu__slider">
+                {% if categories %}
+                    <div class="menu__category active" id="all_categories" data-attr="{{ category.name }}">
+                        <a class="category__link" href="#">ALL</a>
+                    </div>
+                    {% for category in categories %}
+                        <div class="menu__category" data-attr="{{ category.name }}">
+                            <a class="category__link" href="#">{{ category.name }}</a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <strong>There are no categories present.</strong>
+                {% endif %}
+                </div>
+                <div class="menu__arrow menu__arrow--right">
+                    <svg width="35" height="58" viewBox="0 0 35 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.855841 6.37267L6.5127 0.71582L34.797 29.0001L6.5127 57.2844L0.855841 51.6275L23.4833 29.0001L0.855841 6.37267Z" fill="#FFF"/>
+                    </svg>                        
+                </div>
+            </div>
+            <div class="menu__nav">
+                <div class="nav__track nav__track--left"></div>
+                <div class="nav__thumb" id="menu_thumb">
+                    <div class="nav__thumb--inner"></div>
+                    <div class="nav__thumb--outer"></div>
+                </div>
+                <div class="nav__track nav__track--right"></div>
+                <div class="nav__track nav__track--full"></div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slider__slides" id="slides" url="{% url 'portfolio:project_listing' %}">
+            </div>
+        </div>
+        <div class="slider__scrollbar">
+            <div class="scrollbar__elements">
+                <div class="scrollbar__track"></div>
+                <div class="scrollbar__thumb">
+                    <div class="scrollbar__thumb--inside"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+{% block script_block %}
+<script src="{% static 'js/projects.js' %}?v=3.1" type="text/javascript"></script>
+<script src="{% static 'js/slider-scrollbar.js' %}?v=3.1" type="text/javascript"></script>
+{% endblock %}

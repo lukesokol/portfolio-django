@@ -1,0 +1,76 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Łukasz Sokołowski Portfolio - {{ project.name }}
+{% endblock %}
+
+{% block main_block %}
+<main class="project">
+    <div class="project-wrapper">
+        <div class="project__button">
+            <a href="{% url 'portfolio:work' %}">
+                <svg width="35" height="58" viewBox="0 0 35 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M34.6569 6.37267L29 0.71582L0.715729 29.0001L29 57.2844L34.6569 51.6275L12.0294 29.0001L34.6569 6.37267Z" fill="#FFF"/>
+                </svg>
+            </a>
+        </div>
+        <div class="project__logo" style="background-image: url(../../..{{ project.logo.url }});"></div>
+        <div class="project__content">               
+            <p class="project__title">{{ project.title }}</p>
+            <p class="project__subtitle">{{ project.subtitle }}</p>
+            <div class="project__story">
+                <div class="project__description">{{ project.project_description }}</div>
+                <div class="project__role">
+                    <p>MY ROLE</p>
+                    <ul>
+                        {% for role in roles %}
+                        <li>• &nbsp;{{ role }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-open-modal class="project__gallery">
+            <span class="gallery__button-line"></span>
+            <span class="gallery__button-view">See the gallery</span>
+            <svg width="223" height="190" viewBox="0 0 223 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5.9502" y="54.7373" width="170" height="130" rx="11" stroke="white" stroke-width="10"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9502 75.7402C20.9502 72.4265 23.6365 69.7402 26.9502 69.7402H154.95C158.264 69.7402 160.95 72.4265 160.95 75.7402V133.99L135.626 108.175C131.957 104.435 126.024 104.16 122.025 107.546L96.0759 129.519C92.8989 132.209 88.3877 132.65 84.7503 130.625L62.6122 118.303C59.7462 116.708 56.2802 116.62 53.3367 118.067L20.9502 133.99V75.7402ZM50.1488 89.173C50.1488 93.2967 46.8058 96.6396 42.6821 96.6396C38.5584 96.6396 35.2154 93.2967 35.2154 89.173C35.2154 85.0493 38.5584 81.7063 42.6821 81.7063C46.8058 81.7063 50.1488 85.0493 50.1488 89.173Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M212.254 57.0332L75.0711 1.49106C66.8804 -1.82516 57.5522 2.12637 54.236 10.3171L35.3916 56.8605H46.1801L63.5051 14.0699C64.7487 10.9984 68.2468 9.51657 71.3183 10.7602L208.501 66.3023C211.572 67.5459 213.054 71.044 211.811 74.1155L175.672 163.373V182.614H149.374L159.714 186.801C167.905 190.117 177.233 186.165 180.549 177.975L221.08 77.8683C224.396 69.6776 220.444 60.3494 212.254 57.0332Z" fill="white"/>
+            </svg>                                       
+        </div>
+        <dialog data-modal class="gallery-modal">
+            <div data-close-modal class="close-btn">
+                <svg width="59" height="58" viewBox="0 0 59 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.11035 0.71582L0.453613 6.37256L23.0811 29L0.453613 51.6274L6.11035 57.2842L29.5322 33.8623L52.9541 57.2842L58.6108 51.6274L35.9834 29L58.6108 6.37256L52.9541 0.71582L29.5322 24.1377L6.11035 0.71582Z" fill="#D9D9D9"/>
+                </svg>
+            </div>
+            <div class="gallery__arrow gallery__arrow--left">
+                <svg width="35" height="58" viewBox="0 0 35 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M34.6569 6.37267L29 0.71582L0.715729 29.0001L29 57.2844L34.6569 51.6275L12.0294 29.0001L34.6569 6.37267Z" fill="#FFF"/>
+                </svg>
+            </div>
+            <div class="gallery__arrow gallery__arrow--right">
+                <svg width="35" height="58" viewBox="0 0 35 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.855841 6.37267L6.5127 0.71582L34.797 29.0001L6.5127 57.2844L0.855841 51.6275L23.4833 29.0001L0.855841 6.37267Z" fill="#FFF"/>
+                </svg> 
+            </div>
+            <div class="gallery__images">
+                {% if images %}
+                    {% for image in images %}
+                        {% if forloop.first %}
+                        <img class="gallery__image" src="../../..{{ image.image.url }}" alt="">
+                        {% else %}
+                        <img class="gallery__image gallery__image--hidden" src="../../..{{ image.image.url }}" alt="">
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </dialog>
+    </div>
+</main>
+{% endblock %}
+{% block script_block %}
+<script src="{% static 'js/gallery.js' %}"></script>
+{% endblock %}
